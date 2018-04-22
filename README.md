@@ -10,9 +10,9 @@ $ cd pt-cloud-words
 $ npm install
 ```
 
-### 1. `utopian_io_all_time.js`
+### 1. `pt-cloud-words.js`
 
-This gets all the posts from utopian voting history where the @utopian-io bot has voted for posts (*it excludes up-votes on comments and down-votes on top-level posts*)
+This generatest the cloud words from STEEM posts containing the #pt tag.
 
 ```
 $ node pt-cloud-words.js

@@ -19,22 +19,24 @@ console.log(now);
 
 const sqlStr = `
 select
-  comments.author
-  ,comments.permlink
-  ,comments.body
-  ,comments.created
+  author
+  ,permlink
+  ,body
+  ,created
 from 
- Comments (NOLOCK) comments
+ Comments
 where 
-comments.depth=0 
-and 
-  ( 
-    ( JSON_VALUE(json_metadata,'$.tags[4]') in ('pt') ) or
-    ( JSON_VALUE(json_metadata,'$.tags[3]') in ('pt') ) or
-    ( JSON_VALUE(json_metadata,'$.tags[2]') in ('pt') ) or
-    ( JSON_VALUE(json_metadata,'$.tags[1]') in ('pt') ) or
-    ( JSON_VALUE(json_metadata,'$.tags[0]') in ('pt') ) 
-  )
+  depth=0 
+  and ISJSON(json_metadata) > 0
+  and created >= '2018-04-22'
+  and 
+    ( 
+      ( JSON_VALUE(json_metadata,'$.tags[4]') in ('pt') ) or
+      ( JSON_VALUE(json_metadata,'$.tags[3]') in ('pt') ) or
+      ( JSON_VALUE(json_metadata,'$.tags[2]') in ('pt') ) or
+      ( JSON_VALUE(json_metadata,'$.tags[1]') in ('pt') ) or
+      ( JSON_VALUE(json_metadata,'$.tags[0]') in ('pt') ) 
+    )
 `
 
 // connect to your database
@@ -57,14 +59,11 @@ sql.connect(config, function (err) {
 
     const filetstamp = dateFormat(now, "UTC:yyyymmdd_HHMMss");
     const outputCsv = `output/pt-cloud-words_${filetstamp}.csv`;
-    fs.writeFileSync(outputCsv, 'Author,Permlink,Creation Date,Word Count,Body\r\n');
     result.recordset.forEach(function(item) {
-      const created = dateFormat(item.created, "UTC:yyyy-mm-dd HH:MM:ss");
       const body = removeMd(item.body);
-      const word_count = wordcount(body);
-      const bodyCloudWords = sw.removeStopwords(body);
+      const bodyCloudWords = sw.removeStopwords(body.split(' '), sw.pt);
 
-      var dataToWrite = `${item.author},${item.permlink},${created},${word_count},${bodyCloudWords}\r\n`
+      var dataToWrite = `${bodyCloudWords.join(' ')}\r\n`
       fs.appendFileSync(outputCsv, dataToWrite);
     });
 

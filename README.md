@@ -5,8 +5,8 @@ Analysis of [Utopian](https://utopian.io/) contributions on the STEEM blockchain
 ## Installation
 
 ```
-$ git clone git@github.com:eastmaels/biutopian.git
-$ cd biutopian
+$ git clone git@github.com:eastmaels/pt-cloud-words.git
+$ cd pt-cloud-words
 $ npm install
 ```
 
@@ -15,18 +15,9 @@ $ npm install
 This gets all the posts from utopian voting history where the @utopian-io bot has voted for posts (*it excludes up-votes on comments and down-votes on top-level posts*)
 
 ```
-$ node utopian_io_all_time.js
+$ node pt-cloud-words.js
 ```
 
-This will generate a CSV in `./analysis` folder with filename formatted to `utopian-io_yyyymmdd_HHMMss.csv`. You can create your reports from this file.
-
-### 2. `steem_languages.js`
-
-Extracts the number of posts in different languages by date; this is from the STEEM blockchain as a whole not just Utopian.
-
-```
-$ node steem_languages.js
-```
-
-This will generate a CSV in `./analysis` folder with filename formatted to `languages_yyyymmdd_HHMMss.csv`. You can create your reports from this file.
+This will generate a CSV in `./output` folder with filename formatted to `pt-cloud-words__yyyymmdd_HHMMss.csv`. 
+You can directly copy the content of this file to .
 

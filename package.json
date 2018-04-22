@@ -1,0 +1,33 @@
+{
+  "name": "pt-cloud-words",
+  "version": "0.0.1",
+  "description": "Analysis of Utopian contributions on the STEEM blockchain",
+  "main": "pt-cloud-words.js",
+  "dependencies": {
+    "dateformat": "^3.0.2",
+    "mssql": "^4.1.0",
+    "remove-markdown": "^0.2.2",
+    "request": "^2.83.0",
+    "stopword": "^0.1.10",
+    "wordcount": "^1.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eastmaels/pt-cloud-words.git"
+  },
+  "keywords": [
+    "word cloud",
+    "steem",
+    "pt"
+  ],
+  "author": "East",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eastmaels/pt-cloud-words/issues"
+  },
+  "homepage": "https://github.com/eastmaels/pt-cloud-words#readme"
+}

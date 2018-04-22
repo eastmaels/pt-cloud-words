@@ -1,7 +1,7 @@
 {
   "name": "pt-cloud-words",
   "version": "0.0.1",
-  "description": "Analysis of Utopian contributions on the STEEM blockchain",
+  "description": "Word cloud generator for Portuguese STEEM posts",
   "main": "pt-cloud-words.js",
   "dependencies": {
     "dateformat": "^3.0.2",

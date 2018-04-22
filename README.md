@@ -1,6 +1,6 @@
-# biutopian
+# Portuguese Cloud Words
 
-Analysis of [Utopian](https://utopian.io/) contributions on the STEEM blockchain.
+Word Cloud Generator for Portuguese posts in STEEM.
 
 ## Installation
 
@@ -19,5 +19,5 @@ $ node pt-cloud-words.js
 ```
 
 This will generate a CSV in `./output` folder with filename formatted to `pt-cloud-words__yyyymmdd_HHMMss.csv`. 
-You can directly copy the content of this file to .
+You can directly copy the content of this file to https://www.jasondavies.com/wordcloud/.
 
